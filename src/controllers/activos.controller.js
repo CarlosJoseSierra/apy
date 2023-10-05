@@ -84,9 +84,9 @@ export const updateActivoById = async (req, res) => {
     EQC_provincia,EQC_cabezales,EQC_SubCanal, EQC_Grupocliente} = req.body;
 
   // validating
-  if (EQC_serie == null || EQC_placa == null ||  EQC_EQUIP_id==null  || EQC_USU_edit == null || EQC_codTag == null || EQC_LOGO_id == null) {
-    return res.status(400).json({ msg: "Favor ingresar Datos Requeridos" });
-  }
+  //if (EQC_serie == null || EQC_placa == null ||  EQC_EQUIP_id==null  || EQC_USU_edit == null || EQC_codTag == null || EQC_LOGO_id == null) {
+   // return res.status(400).json({ msg: "Favor ingresar Datos Requeridos" });
+  //}
 
   try {
     //console.log('no se conecto');
@@ -101,15 +101,16 @@ export const updateActivoById = async (req, res) => {
       .input("EQC_MARCA_id", sql.Decimal, EQC_MARCA_id)
       .input("EQC_MAP_ciudad", sql.VarChar, EQC_MAP_ciudad)
       .input("EQC_MAP_provincia", sql.VarChar, EQC_MAP_provincia)
-     // .input("EQC_MAP_address", sql.VarChar, EQC_MAP_address)
+      .input("EQC_MAP_address", sql.VarChar, EQC_MAP_address)
+      .input("EQC_USU_ing", sql.Decimal, EQC_USU_ing)
       .input("EQC_USU_edit", sql.Decimal, EQC_USU_edit)
       .input("EQC_codTag", sql.VarChar, EQC_codTag)
-      .input("EQC_LOGO_id", sql.Decimal, EQC_LOGO_id)
+      .input("EQC_LOGO_id", sql.Decimal(18,2), EQC_LOGO_id)
       .input("EQC_nombreCliente", sql.VarChar, EQC_nombreCliente)
       .input("EQC_identificacionCliente", sql.VarChar, EQC_identificacionCliente)
       .input("EQC_direccionCliente", sql.VarChar, EQC_direccionCliente)
       .input("EQC_NegocioCliente", sql.VarChar, EQC_NegocioCliente)
-      .input("EQC_telefonoCliente",sql.VarChar,EQC_telefonoCliente)
+      .input("EQC_telefonoCliente", sql.VarChar, EQC_telefonoCliente)
       .input("EQC_cambio",sql.Decimal,EQC_cambio)
       .input("EQC_estadoEquipo",sql.Decimal,EQC_estadoEquipo)
       .input("EQC_observacion",sql.VarChar,EQC_observacion)
