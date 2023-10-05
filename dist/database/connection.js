@@ -24,8 +24,8 @@ var dbSettings = {
    database: config.dbDatabase, */
   user: "sa",
   password: "Solomon2011",
-  //server: "181.198.20.179",
-  server: "192.168.15.6",
+  server: "181.198.20.179",
+  //server: "192.168.15.6",
   database: "DB_PINOYCAZA_",
   options: {
     encrypt: false,
