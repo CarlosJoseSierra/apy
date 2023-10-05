@@ -7,6 +7,7 @@ import {
   getActivosXUsuario,
   getcountActivo,
   getTipoInventario,
+  getTipoActivo,
 } from "../controllers/activos.controller";
 
 const router = Router();
@@ -22,6 +23,8 @@ router.get("/activos/count", getcountActivo);
 router.get("/activos1/:EQC_codTag", getActivoByCodTag);
 
 router.get("/activos/tipo", getTipoInventario);
+
+router.get("/activos/tipoA", getTipoActivo);
 
 router.put("/activos/x/:id", updateActivoById);
 

@@ -13,6 +13,7 @@ router.post("/activos/new", _activos.createNewActivo);
 router.get("/activos/count", _activos.getcountActivo);
 router.get("/activos1/:EQC_codTag", _activos.getActivoByCodTag);
 router.get("/activos/tipo", _activos.getTipoInventario);
+router.get("/activos/tipoA", _activos.getTipoActivo);
 router.put("/activos/x/:id", _activos.updateActivoById);
 var _default = router;
 exports["default"] = _default;
