@@ -13,10 +13,10 @@ export const querys = {
     "UPDATE EQUIPO_COMPLETO SET EQC_serie = @EQC_serie,EQC_placa = @EQC_placa,EQC_EQUIP_id = @EQC_EQUIP_id,EQC_MARCA_id = @EQC_MARCA_id,EQC_MAP_ciudad = @EQC_MAP_ciudad,EQC_MAP_provincia = @EQC_MAP_provincia,EQC_USU_edit = @EQC_USU_edit,EQC_fecha_edit = GETDATE(),EQC_codTag = @EQC_codTag,EQC_LOGO_id = @EQC_LOGO_id,EQC_nombreCliente = @EQC_nombreCliente,EQC_identificacionCliente = @EQC_identificacionCliente,EQC_direccionCliente = @EQC_direccionCliente,EQC_NegocioCliente = @EQC_NegocioCliente,EQC_telefonoCliente = @EQC_telefonoCliente,EQC_cambio = @EQC_cambio,EQC_estadoEquipo = @EQC_estadoEquipo,EQC_observacion = @EQC_observacion, EQC_TI_id = @EQC_TI_id, EQC_UBIC_id = @EQC_UBIC_id,EQC_provincia = @EQC_provincia,EQC_cabezales =@EQC_cabezales,EQC_SubCanal=@EQC_SubCanal, EQC_Grupocliente=@EQC_Grupocliente  WHERE EQC_id = @Id",
   
   //Querys Tabla Tipo Inventario
-  getAllTipoInventario: "SELECT TI_id, TI_descripcion FROM TIPO_ACTIVO",
+  getAllTipoInventario: "SELECT TI_id, TI_descripcion FROM TIPO_INVENTARIO",
 
   //Querys Tabla Tipo Activo
-      getAllTipoInventario: "SELECT TA_id, TA_descripcion FROM TIPO_INVENTARIO",
+      getAllTipoInventario: "SELECT TA_id, TA_descripcion FROM TIPO_ACTIVO",
 
    //Querys Tabla Modelos de Equipos
   getAllEquipos: "SELECT * FROM TIPO_ACTIVO", 
