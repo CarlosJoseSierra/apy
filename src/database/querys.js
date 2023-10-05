@@ -16,7 +16,7 @@ export const querys = {
   getAllTipoInventario: "SELECT TI_id, TI_descripcion FROM TIPO_INVENTARIO",
 
   //Querys Tabla Tipo Activo
-      getAllTipoInventario: "SELECT TA_id, TA_descripcion FROM TIPO_ACTIVO",
+      getAllTipoActivo: "SELECT TA_id, TA_descripcion FROM TIPO_ACTIVO",
 
    //Querys Tabla Modelos de Equipos
   getAllEquipos: "SELECT * FROM TIPO_ACTIVO", 
