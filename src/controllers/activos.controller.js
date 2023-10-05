@@ -47,7 +47,7 @@ export const createNewActivo = async (req, res) => {
       .input("EQC_USU_ing", sql.Decimal, EQC_USU_ing)
       .input("EQC_USU_edit", sql.Decimal, EQC_USU_edit)
       .input("EQC_codTag", sql.VarChar, EQC_codTag)
-      .input("EQC_LOGO_id", sql.Decimal, EQC_LOGO_id)
+      .input("EQC_LOGO_id", sql.Decimal(18,2), EQC_LOGO_id)
       .input("EQC_nombreCliente", sql.VarChar, EQC_nombreCliente)
       .input("EQC_identificacionCliente", sql.VarChar, EQC_identificacionCliente)
       .input("EQC_direccionCliente", sql.VarChar, EQC_direccionCliente)

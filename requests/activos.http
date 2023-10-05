@@ -16,14 +16,55 @@ Content-Type: application/json
     "EQC_MAP_address":"xxxxxxxxxxxxxxxxxxxxxxxxx",
     "EQC_USU_ing":1,
     "EQC_codTag":"S2",
-    "EQC_LOGO_id":5,
+    "EQC_LOGO_id":5.26,
     "EQC_nombreCliente":"cjsa",
     "EQC_identificacionCliente":"0919",
     "EQC_direccionCliente":"tulip",
     "EQC_NegocioCliente":"tienda NN",
     "EQC_telefonoCliente":"0967bb",
-    "EQC_cambio":0
+    "EQC_cambio":0,
+    "EQC_estadoEquipo":1,
+    "EQC_observacion":"carlos",
+    "EQC_TI_id":1,
+    "EQC_UBIC_id":1,
+    "EQC_provincia":"GUAYAS",
+    "EQC_cabezales":1,
+    "EQC_SubCanal":"",
+    "EQC_Grupocliente":""
+
 }
+
+###
+//POST https://apy-production-f38f.up.railway.app/api/activos/new
+POST http://localhost:3000/api/activos/new
+Content-Type: application/json
+
+{   
+    "EQC_serie":"zzz",
+    "EQC_placa":"2222",
+    "EQC_EQUIP_id":5,
+    "EQC_MAP_ciudad":"Quito",
+    "EQC_MAP_provincia":"Pichincha",
+    "EQC_MAP_address":"xxxxxxxxxxxxxxxxxxxxxxxxx",
+    "EQC_USU_ing":1,
+    "EQC_codTag":"S2",
+    "EQC_LOGO_id":2.89,
+    "EQC_nombreCliente":"cjsa",
+    "EQC_identificacionCliente":"0919",
+    "EQC_direccionCliente":"tulip",
+    "EQC_NegocioCliente":"tienda NN",
+    "EQC_telefonoCliente":"0967bb",
+    "EQC_cambio":0,
+    "EQC_estadoEquipo":1,
+    "EQC_observacion":"carlos",
+    "EQC_TI_id":1,
+    "EQC_UBIC_id":1,
+    "EQC_provincia":"GUAYAS",
+    "EQC_cabezales":1,
+    "EQC_SubCanal":"",
+    "EQC_Grupocliente":""
+}
+
 
 ###
 PUT {{api3}}/13
