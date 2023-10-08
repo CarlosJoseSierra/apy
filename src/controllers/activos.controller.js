@@ -26,7 +26,7 @@ export const createNewActivo = async (req, res) => {
   const { EQC_serie, EQC_placa, EQC_EQUIP_id,EQC_MARCA_id,EQC_MAP_ciudad,EQC_MAP_provincia,EQC_MAP_address,EQC_USU_ing,
     EQC_codTag,EQC_LOGO_id,EQC_nombreCliente,EQC_identificacionCliente,EQC_direccionCliente,EQC_NegocioCliente,
     EQC_telefonoCliente,EQC_cambio,EQC_estadoEquipo,EQC_observacion,EQC_TI_id,EQC_USU_edit,EQC_UBIC_id,
-    EQC_provincia,EQC_cabezales, EQC_SubCanal, EQC_Grupocliente} = req.body;
+    EQC_provincia,EQC_cabezales, EQC_SubCanal, EQC_Grupocliente, EQC_Ubicacion} = req.body;
   
   // validating
   if (EQC_serie == null || EQC_placa == null ||  EQC_EQUIP_id==null || EQC_USU_ing == null || EQC_codTag == null || EQC_LOGO_id == null) {
@@ -62,7 +62,7 @@ export const createNewActivo = async (req, res) => {
       .input("EQC_cabezales", sql.Decimal, EQC_cabezales)
       .input("EQC_SubCanal", sql.VarChar, EQC_SubCanal)
       .input("EQC_Grupocliente", sql.VarChar, EQC_Grupocliente)
-      
+      .input("EQC_Ubicacion", sql.VarChar, EQC_Ubicacion)
       .query(querys.addNewActivo);
       if(result.rowsAffected==1){
         return res.status(200).json({ status: "ok", msg: "Registro exitoso" ,token:0});
