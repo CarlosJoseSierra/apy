@@ -6,11 +6,11 @@ export const dbSettings = {
   password: config.dbPassword,
   server: config.dbServer,
   database: config.dbDatabase, */
-  user: "sa",
-  password: "Solomon2011",
-  server: "181.198.20.179",
+  user: "sax",
+  password: "Solomon2011x",
+  server: "181.198.20.179x",
   //server: "192.168.15.6",
-  database: "DB_PINOYCAZA_",
+  database: "DB_PINOYCAZA_x",
   options: {
     encrypt: false, // for azure
     trustServerCertificate: true, // change to true for local dev / self-signed certs
