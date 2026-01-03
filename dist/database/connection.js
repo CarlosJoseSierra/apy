@@ -22,11 +22,14 @@ var dbSettings = {
    password: config.dbPassword,
    server: config.dbServer,
    database: config.dbDatabase, */
-  user: "sax",
-  password: "Solomon2011x",
-  server: "181.198.20.179x",
+  //user: "sax",
+  user: "server",
+  password: "Solomon2011",
+  //server: "181.198.20.179x",
+  server: "seimalsa.cwh4s6o4w0t4.us-east-1.rds.amazonaws.com",
   //server: "192.168.15.6",
-  database: "DB_PINOYCAZA_x",
+  //database: "DB_PINOYCAZA_x",
+  database: "PRODUCCION",
   options: {
     encrypt: false,
     // for azure
