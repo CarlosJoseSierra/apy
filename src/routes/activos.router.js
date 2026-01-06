@@ -17,7 +17,7 @@ router.get("/activos", getActivos);
 router.get("/activos/y/:idUsuario", getActivosXUsuario);
 
 //router.post("/activos/new", createNewActivo);
-router.post("/activos/new", storage.array('3',7),createNewActivo);
+router.post("/activos/new", storage.array('image',3),createNewActivo);
 
 router.get("/activos/count", getcountActivo);
 

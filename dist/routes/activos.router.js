@@ -11,7 +11,7 @@ router.get("/activos", _activos.getActivos);
 router.get("/activos/y/:idUsuario", _activos.getActivosXUsuario);
 
 //router.post("/activos/new", createNewActivo);
-router.post("/activos/new", storage.array('3', 7), _activos.createNewActivo);
+router.post("/activos/new", storage.array('image', 3), _activos.createNewActivo);
 router.get("/activos/count", _activos.getcountActivo);
 router.get("/activos1/:EQC_codTag", _activos.getActivoByCodTag);
 router.get("/activos/tipo", _activos.getTipoInventario);
