@@ -1,4 +1,6 @@
 import { Router } from "express";
+const storage = require('../libs/multer');
+
 import {
   getActivos,
   createNewActivo,
