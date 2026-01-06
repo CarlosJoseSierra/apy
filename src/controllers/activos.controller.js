@@ -125,9 +125,9 @@ export const createNewActivo = async (req, res) => {
         .input("EQC_SubCanal", sql.VarChar, req.body.EQC_SubCanal)
         .input("EQC_Grupocliente", sql.VarChar, req.body.EQC_Grupocliente)
         .input("EQC_Ubicacion", sql.VarChar, req.body.EQC_Ubicacion)
-        .input("REQ_imagen1", sql.VarChar, image1)
-        .input("REQ_imagen2", sql.VarChar, image2)
-        .input("REQ_imagen3", sql.VarChar, image3)
+        .input("REQ_image1", sql.VarChar, image1)
+        .input("REQ_image2", sql.VarChar, image2)
+        .input("REQ_image3", sql.VarChar, image3)
         .query(querys.addNewActivo);
         if(result.rowsAffected==1){
           return res.status(200).json({ status: "ok", msg: "Registro exitoso" ,token:0});
