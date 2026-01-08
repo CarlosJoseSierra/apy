@@ -84,62 +84,13 @@ var createNewActivo = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
-          //const { EQC_serie, EQC_placa, EQC_EQUIP_id,EQC_MARCA_id,EQC_MAP_ciudad,EQC_MAP_provincia,EQC_MAP_address,EQC_USU_ing,
-          //EQC_codTag,EQC_LOGO_id,EQC_nombreCliente,EQC_identificacionCliente,EQC_direccionCliente,EQC_NegocioCliente,
-          //EQC_telefonoCliente,EQC_cambio,EQC_estadoEquipo,EQC_observacion,EQC_TI_id,EQC_USU_edit,EQC_UBIC_id,
-          //EQC_provincia,EQC_cabezales, EQC_SubCanal, EQC_Grupocliente, EQC_Ubicacion} = req.body;
-          // validating
-          //if (EQC_serie == null || EQC_placa == null ||  EQC_EQUIP_id==null || EQC_USU_ing == null || EQC_codTag == null || EQC_LOGO_id == null) {
-          //return res.status(400).json({ msg: "Favor ingresar Datos Requeridos" });
-          //}
-          //try {
-          //const pool = await getConnection();
-          //const result = await pool
-          //.request()
-          //.input("EQC_serie", sql.VarChar, EQC_serie)
-          //.input("EQC_placa", sql.VarChar, EQC_placa)
-          //.input("EQC_EQUIP_id", sql.Decimal, EQC_EQUIP_id)
-          //.input("EQC_MARCA_id", sql.Decimal, EQC_MARCA_id)
-          //.input("EQC_MAP_ciudad", sql.VarChar, EQC_MAP_ciudad)
-          //.input("EQC_MAP_provincia", sql.VarChar, EQC_MAP_provincia)
-          //.input("EQC_MAP_address", sql.VarChar, EQC_MAP_address)
-          //.input("EQC_USU_ing", sql.Decimal, EQC_USU_ing)
-          //.input("EQC_USU_edit", sql.Decimal, EQC_USU_edit)
-          //.input("EQC_codTag", sql.VarChar, EQC_codTag)
-          //.input("EQC_LOGO_id", sql.Decimal(18,2), EQC_LOGO_id)
-          //.input("EQC_nombreCliente", sql.VarChar, EQC_nombreCliente)
-          //.input("EQC_identificacionCliente", sql.VarChar, EQC_identificacionCliente)
-          //.input("EQC_direccionCliente", sql.VarChar, EQC_direccionCliente)
-          //.input("EQC_NegocioCliente", sql.VarChar, EQC_NegocioCliente)
-          //.input("EQC_telefonoCliente", sql.VarChar, EQC_telefonoCliente)
-          //.input("EQC_cambio",sql.Decimal,EQC_cambio)
-          //.input("EQC_estadoEquipo",sql.Decimal,EQC_estadoEquipo)
-          //.input("EQC_observacion",sql.VarChar,EQC_observacion)
-          //.input("EQC_TI_id", sql.Decimal, EQC_TI_id)
-          //.input("EQC_UBIC_id",sql.Decimal,EQC_UBIC_id)
-          //.input("EQC_provincia",sql.VarChar,EQC_provincia)
-          //.input("EQC_cabezales", sql.Decimal, EQC_cabezales)
-          //.input("EQC_SubCanal", sql.VarChar, EQC_SubCanal)
-          //.input("EQC_Grupocliente", sql.VarChar, EQC_Grupocliente)
-          //.input("EQC_Ubicacion", sql.VarChar, EQC_Ubicacion)
-          //.query(querys.addNewActivo);
-          //if(result.rowsAffected==1){
-          //return res.status(200).json({ status: "ok", msg: "Registro exitoso" ,token:0});
-          //}else{
-          //return res.status(400).json({ status: "400", msg: "No se pudo registrar, consulte al administrador" ,token:0});
-          //}
-          //} catch (error) {
-          //res.status(500);
-          //console.log(error.message);
-          //res.send(error.message);
-          //}
-          image1 = '', image2 = '', image3 = '';
+          image1 = "", image2 = "", image3 = "";
           if (!(req.files.length > 0)) {
-            _context3.next = 36;
+            _context3.next = 38;
             break;
           }
           if (!(req.files[0] != undefined)) {
-            _context3.next = 7;
+            _context3.next = 9;
             break;
           }
           _context3.next = 5;
@@ -147,38 +98,40 @@ var createNewActivo = /*#__PURE__*/function () {
         case 5:
           img = _context3.sent;
           image1 = img.secure_url;
-        case 7:
+          _context3.next = 14;
+          break;
+        case 9:
           if (!(req.files[1] != undefined)) {
-            _context3.next = 12;
+            _context3.next = 14;
             break;
           }
-          _context3.next = 10;
+          _context3.next = 12;
           return cloudinary.uploader.upload(req.files[1].path);
-        case 10:
+        case 12:
           _img = _context3.sent;
           image2 = _img.secure_url;
-        case 12:
+        case 14:
           if (!(req.files[2] != undefined)) {
-            _context3.next = 17;
+            _context3.next = 19;
             break;
           }
-          _context3.next = 15;
+          _context3.next = 17;
           return cloudinary.uploader.upload(req.files[2].path);
-        case 15:
+        case 17:
           _img2 = _context3.sent;
           image3 = _img2.secure_url;
-        case 17:
-          _context3.prev = 17;
-          _context3.next = 20;
+        case 19:
+          _context3.prev = 19;
+          _context3.next = 22;
           return (0, _database.getConnection)();
-        case 20:
+        case 22:
           pool = _context3.sent;
-          _context3.next = 23;
+          _context3.next = 25;
           return pool.request().input("EQC_serie", _database.sql.VarChar, req.body.EQC_serie).input("EQC_placa", _database.sql.VarChar, req.body.EQC_placa).input("EQC_EQUIP_id", _database.sql.Decimal, req.body.EQC_EQUIP_id).input("EQC_MARCA_id", _database.sql.Decimal, req.body.EQC_MARCA_id).input("EQC_MAP_ciudad", _database.sql.VarChar, req.body.EQC_MAP_ciudad).input("EQC_MAP_provincia", _database.sql.VarChar, req.body.EQC_MAP_provincia).input("EQC_MAP_address", _database.sql.VarChar, req.body.EQC_MAP_address).input("EQC_USU_ing", _database.sql.Decimal, req.body.EQC_USU_ing).input("EQC_USU_edit", _database.sql.Decimal, req.body.EQC_USU_edit).input("EQC_codTag", _database.sql.VarChar, req.body.EQC_codTag).input("EQC_LOGO_id", _database.sql.Decimal(18, 2), req.body.EQC_LOGO_id).input("EQC_nombreCliente", _database.sql.VarChar, req.body.EQC_nombreCliente).input("EQC_identificacionCliente", _database.sql.VarChar, req.body.EQC_identificacionCliente).input("EQC_direccionCliente", _database.sql.VarChar, req.body.EQC_direccionCliente).input("EQC_NegocioCliente", _database.sql.VarChar, req.body.EQC_NegocioCliente).input("EQC_telefonoCliente", _database.sql.VarChar, req.body.EQC_telefonoCliente).input("EQC_cambio", _database.sql.Decimal, req.body.EQC_cambio).input("EQC_estadoEquipo", _database.sql.Decimal, req.body.EQC_estadoEquipo).input("EQC_observacion", _database.sql.VarChar, req.body.EQC_observacion).input("EQC_TI_id", _database.sql.Decimal, req.body.EQC_TI_id).input("EQC_UBIC_id", _database.sql.Decimal, req.body.EQC_UBIC_id).input("EQC_provincia", _database.sql.VarChar, req.body.EQC_provincia).input("EQC_cabezales", _database.sql.Decimal, req.body.EQC_cabezales).input("EQC_SubCanal", _database.sql.VarChar, req.body.EQC_SubCanal).input("EQC_Grupocliente", _database.sql.VarChar, req.body.EQC_Grupocliente).input("EQC_Ubicacion", _database.sql.VarChar, req.body.EQC_Ubicacion).input("EQC_image1", _database.sql.VarChar, image1).input("EQC_image2", _database.sql.VarChar, image2).input("EQC_image3", _database.sql.VarChar, image3).query(_database.querys.addNewActivo);
-        case 23:
+        case 25:
           result = _context3.sent;
           if (!(result.rowsAffected == 1)) {
-            _context3.next = 28;
+            _context3.next = 30;
             break;
           }
           return _context3.abrupt("return", res.status(200).json({
@@ -186,26 +139,26 @@ var createNewActivo = /*#__PURE__*/function () {
             msg: "Registro exitoso",
             token: 0
           }));
-        case 28:
+        case 30:
           return _context3.abrupt("return", res.status(400).json({
             status: "400",
             msg: "No se pudo registrar, consulte al administrador",
             token: 0
           }));
-        case 29:
-          _context3.next = 36;
-          break;
         case 31:
-          _context3.prev = 31;
-          _context3.t0 = _context3["catch"](17);
+          _context3.next = 38;
+          break;
+        case 33:
+          _context3.prev = 33;
+          _context3.t0 = _context3["catch"](19);
           res.status(500);
           console.log(_context3.t0.message);
           res.send(_context3.t0.message);
-        case 36:
+        case 38:
         case "end":
           return _context3.stop();
       }
-    }, _callee3, null, [[17, 31]]);
+    }, _callee3, null, [[19, 33]]);
   }));
   return function createNewActivo(_x5, _x6) {
     return _ref3.apply(this, arguments);
@@ -214,25 +167,58 @@ var createNewActivo = /*#__PURE__*/function () {
 exports.createNewActivo = createNewActivo;
 var updateActivoById = /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(req, res) {
-    var _req$body, EQC_serie, EQC_placa, EQC_EQUIP_id, EQC_MARCA_id, EQC_MAP_ciudad, EQC_MAP_provincia, EQC_MAP_address, EQC_USU_ing, EQC_codTag, EQC_LOGO_id, EQC_nombreCliente, EQC_identificacionCliente, EQC_direccionCliente, EQC_NegocioCliente, EQC_telefonoCliente, EQC_cambio, EQC_estadoEquipo, EQC_observacion, EQC_TI_id, EQC_USU_edit, EQC_UBIC_id, EQC_provincia, EQC_cabezales, EQC_SubCanal, EQC_Grupocliente, EQC_Ubicacion, pool, result;
+    var image1, image2, image3, img, _img3, _img4, pool, result;
     return _regeneratorRuntime().wrap(function _callee4$(_context4) {
       while (1) switch (_context4.prev = _context4.next) {
         case 0:
-          _req$body = req.body, EQC_serie = _req$body.EQC_serie, EQC_placa = _req$body.EQC_placa, EQC_EQUIP_id = _req$body.EQC_EQUIP_id, EQC_MARCA_id = _req$body.EQC_MARCA_id, EQC_MAP_ciudad = _req$body.EQC_MAP_ciudad, EQC_MAP_provincia = _req$body.EQC_MAP_provincia, EQC_MAP_address = _req$body.EQC_MAP_address, EQC_USU_ing = _req$body.EQC_USU_ing, EQC_codTag = _req$body.EQC_codTag, EQC_LOGO_id = _req$body.EQC_LOGO_id, EQC_nombreCliente = _req$body.EQC_nombreCliente, EQC_identificacionCliente = _req$body.EQC_identificacionCliente, EQC_direccionCliente = _req$body.EQC_direccionCliente, EQC_NegocioCliente = _req$body.EQC_NegocioCliente, EQC_telefonoCliente = _req$body.EQC_telefonoCliente, EQC_cambio = _req$body.EQC_cambio, EQC_estadoEquipo = _req$body.EQC_estadoEquipo, EQC_observacion = _req$body.EQC_observacion, EQC_TI_id = _req$body.EQC_TI_id, EQC_USU_edit = _req$body.EQC_USU_edit, EQC_UBIC_id = _req$body.EQC_UBIC_id, EQC_provincia = _req$body.EQC_provincia, EQC_cabezales = _req$body.EQC_cabezales, EQC_SubCanal = _req$body.EQC_SubCanal, EQC_Grupocliente = _req$body.EQC_Grupocliente, EQC_Ubicacion = _req$body.EQC_Ubicacion; // validating
-          //if (EQC_serie == null || EQC_placa == null ||  EQC_EQUIP_id==null  || EQC_USU_edit == null || EQC_codTag == null || EQC_LOGO_id == null) {
-          // return res.status(400).json({ msg: "Favor ingresar Datos Requeridos" });
-          //}
-          _context4.prev = 1;
-          _context4.next = 4;
+          image1 = "", image2 = "", image3 = "";
+          if (!(req.files.length > 0)) {
+            _context4.next = 19;
+            break;
+          }
+          if (!(req.files[0] != undefined)) {
+            _context4.next = 9;
+            break;
+          }
+          _context4.next = 5;
+          return cloudinary.uploader.upload(req.files[0].path);
+        case 5:
+          img = _context4.sent;
+          image1 = img.secure_url;
+          _context4.next = 14;
+          break;
+        case 9:
+          if (!(req.files[1] != undefined)) {
+            _context4.next = 14;
+            break;
+          }
+          _context4.next = 12;
+          return cloudinary.uploader.upload(req.files[1].path);
+        case 12:
+          _img3 = _context4.sent;
+          image2 = _img3.secure_url;
+        case 14:
+          if (!(req.files[2] != undefined)) {
+            _context4.next = 19;
+            break;
+          }
+          _context4.next = 17;
+          return cloudinary.uploader.upload(req.files[2].path);
+        case 17:
+          _img4 = _context4.sent;
+          image3 = _img4.secure_url;
+        case 19:
+          _context4.prev = 19;
+          _context4.next = 22;
           return (0, _database.getConnection)();
-        case 4:
+        case 22:
           pool = _context4.sent;
-          _context4.next = 7;
-          return pool.request().input("id", req.params.id).input("EQC_serie", _database.sql.VarChar, EQC_serie).input("EQC_placa", _database.sql.VarChar, EQC_placa).input("EQC_EQUIP_id", _database.sql.Decimal, EQC_EQUIP_id).input("EQC_MARCA_id", _database.sql.Decimal, EQC_MARCA_id).input("EQC_MAP_ciudad", _database.sql.VarChar, EQC_MAP_ciudad).input("EQC_MAP_provincia", _database.sql.VarChar, EQC_MAP_provincia).input("EQC_MAP_address", _database.sql.VarChar, EQC_MAP_address).input("EQC_USU_ing", _database.sql.Decimal, EQC_USU_ing).input("EQC_USU_edit", _database.sql.Decimal, EQC_USU_edit).input("EQC_codTag", _database.sql.VarChar, EQC_codTag).input("EQC_LOGO_id", _database.sql.Decimal(18, 2), EQC_LOGO_id).input("EQC_nombreCliente", _database.sql.VarChar, EQC_nombreCliente).input("EQC_identificacionCliente", _database.sql.VarChar, EQC_identificacionCliente).input("EQC_direccionCliente", _database.sql.VarChar, EQC_direccionCliente).input("EQC_NegocioCliente", _database.sql.VarChar, EQC_NegocioCliente).input("EQC_telefonoCliente", _database.sql.VarChar, EQC_telefonoCliente).input("EQC_cambio", _database.sql.Decimal, EQC_cambio).input("EQC_estadoEquipo", _database.sql.Decimal, EQC_estadoEquipo).input("EQC_observacion", _database.sql.VarChar, EQC_observacion).input("EQC_TI_id", _database.sql.Decimal, EQC_TI_id).input("EQC_UBIC_id", _database.sql.Decimal, EQC_UBIC_id).input("EQC_provincia", _database.sql.VarChar, EQC_provincia).input("EQC_cabezales", _database.sql.Decimal, EQC_cabezales).input("EQC_SubCanal", _database.sql.VarChar, EQC_SubCanal).input("EQC_Grupocliente", _database.sql.VarChar, EQC_Grupocliente).input("EQC_Ubicacion", _database.sql.VarChar, EQC_Ubicacion).query(_database.querys.updateActivoById);
-        case 7:
+          _context4.next = 25;
+          return pool.request().input("id", req.params.id).input("EQC_serie", _database.sql.VarChar, req.body.EQC_serie).input("EQC_placa", _database.sql.VarChar, req.body.EQC_placa).input("EQC_EQUIP_id", _database.sql.Decimal, req.body.EQC_EQUIP_id).input("EQC_MARCA_id", _database.sql.Decimal, req.body.EQC_MARCA_id).input("EQC_MAP_ciudad", _database.sql.VarChar, req.body.EQC_MAP_ciudad).input("EQC_MAP_provincia", _database.sql.VarChar, req.body.EQC_MAP_provincia).input("EQC_MAP_address", _database.sql.VarChar, req.body.EQC_MAP_address).input("EQC_USU_edit", _database.sql.Decimal, req.body.EQC_USU_edit).input("EQC_codTag", _database.sql.VarChar, req.body.EQC_codTag).input("EQC_LOGO_id", _database.sql.Decimal(18, 2), req.body.EQC_LOGO_id).input("EQC_nombreCliente", _database.sql.VarChar, req.body.EQC_nombreCliente).input("EQC_identificacionCliente", _database.sql.VarChar, req.body.EQC_identificacionCliente).input("EQC_direccionCliente", _database.sql.VarChar, req.body.EQC_direccionCliente).input("EQC_NegocioCliente", _database.sql.VarChar, req.body.EQC_NegocioCliente).input("EQC_telefonoCliente", _database.sql.VarChar, req.body.EQC_telefonoCliente).input("EQC_cambio", _database.sql.Decimal, req.body.EQC_cambio).input("EQC_estadoEquipo", _database.sql.Decimal, req.body.EQC_estadoEquipo).input("EQC_observacion", _database.sql.VarChar, req.body.EQC_observacion).input("EQC_TI_id", _database.sql.Decimal, req.body.EQC_TI_id).input("EQC_UBIC_id", _database.sql.Decimal, req.body.EQC_UBIC_id).input("EQC_provincia", _database.sql.VarChar, req.body.EQC_provincia).input("EQC_cabezales", _database.sql.Decimal, req.body.EQC_cabezales).input("EQC_SubCanal", _database.sql.VarChar, req.body.EQC_SubCanal).input("EQC_Grupocliente", _database.sql.VarChar, req.body.EQC_Grupocliente).input("EQC_Ubicacion", _database.sql.VarChar, req.body.EQC_Ubicacion).input("EQC_image1", _database.sql.VarChar, image1).input("EQC_image2", _database.sql.VarChar, image2).input("EQC_image3", _database.sql.VarChar, image3).query(_database.querys.updateActivoById);
+        case 25:
           result = _context4.sent;
           if (!(result.rowsAffected == 1)) {
-            _context4.next = 12;
+            _context4.next = 30;
             break;
           }
           return _context4.abrupt("return", res.status(200).json({
@@ -240,25 +226,25 @@ var updateActivoById = /*#__PURE__*/function () {
             msg: "Actualizacion exitosa",
             token: 0
           }));
-        case 12:
+        case 30:
           return _context4.abrupt("return", res.status(400).json({
             status: "400",
             msg: "No se pudo actualizar, consulte al administrador",
             token: 0
           }));
-        case 13:
-          _context4.next = 19;
+        case 31:
+          _context4.next = 37;
           break;
-        case 15:
-          _context4.prev = 15;
-          _context4.t0 = _context4["catch"](1);
+        case 33:
+          _context4.prev = 33;
+          _context4.t0 = _context4["catch"](19);
           res.status(500);
           res.send(_context4.t0.message);
-        case 19:
+        case 37:
         case "end":
           return _context4.stop();
       }
-    }, _callee4, null, [[1, 15]]);
+    }, _callee4, null, [[19, 33]]);
   }));
   return function updateActivoById(_x7, _x8) {
     return _ref4.apply(this, arguments);
