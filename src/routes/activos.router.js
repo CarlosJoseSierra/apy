@@ -29,6 +29,7 @@ router.get("/activos/tipo", getTipoInventario);
 
 router.get("/activos/tipoA", getTipoActivo);
 
-router.put("/activos/x/:id", updateActivoById);
+//router.put("/activos/x/:id", updateActivoById);
+router.put("/activos/x/:id", storage.array('image',3),updateActivoById);
 
 export default router;
