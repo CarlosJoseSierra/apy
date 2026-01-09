@@ -32,7 +32,7 @@ export const createNewActivo = async (req, res) => {
         const img = await cloudinary.uploader.upload(req.files[0].path);
         image1 = img.secure_url;
     }
-    else
+    
     if(req.files[1]!=undefined)
     {
         const img = await cloudinary.uploader.upload(req.files[1].path);
@@ -100,7 +100,7 @@ export const updateActivoById = async (req, res) => {
         const img = await cloudinary.uploader.upload(req.files[0].path);
         image1 = img.secure_url;
     }
-    else
+    
     if(req.files[1]!=undefined)
     {
         const img = await cloudinary.uploader.upload(req.files[1].path);
