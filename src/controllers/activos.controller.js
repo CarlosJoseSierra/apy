@@ -43,7 +43,7 @@ export const createNewActivo = async (req, res) => {
         const img = await cloudinary.uploader.upload(req.files[2].path);
         image3 = img.secure_url;
     }
-
+  }
     try {
       const pool = await getConnection();
       const result = await pool
@@ -88,7 +88,6 @@ export const createNewActivo = async (req, res) => {
       console.log(error.message);
       res.send(error.message);
     }
-  }
 };
 
 export const updateActivoById = async (req, res) => {

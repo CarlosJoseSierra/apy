@@ -86,7 +86,7 @@ var createNewActivo = /*#__PURE__*/function () {
         case 0:
           image1 = "", image2 = "", image3 = "";
           if (!(req.files.length > 0)) {
-            _context3.next = 36;
+            _context3.next = 17;
             break;
           }
           if (!(req.files[0] != undefined)) {
