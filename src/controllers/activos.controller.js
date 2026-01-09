@@ -112,49 +112,94 @@ export const updateActivoById = async (req, res) => {
         image3 = img.secure_url;
     }
   }
-  try {
-    const pool = await getConnection();
-    const result = await pool
-      .request()
-      .input("id", req.params.id)
-      .input("EQC_serie", sql.VarChar, req.body.EQC_serie)
-      .input("EQC_placa", sql.VarChar, req.body.EQC_placa)
-      .input("EQC_EQUIP_id", sql.Decimal, req.body.EQC_EQUIP_id)
-      .input("EQC_MARCA_id", sql.Decimal, req.body.EQC_MARCA_id)
-      .input("EQC_MAP_ciudad", sql.VarChar, req.body.EQC_MAP_ciudad)
-      .input("EQC_MAP_provincia", sql.VarChar, req.body.EQC_MAP_provincia)
-      .input("EQC_MAP_address", sql.VarChar, req.body.EQC_MAP_address)
-      .input("EQC_USU_edit", sql.Decimal, req.body.EQC_USU_edit)
-      .input("EQC_codTag", sql.VarChar, req.body.EQC_codTag)
-      .input("EQC_LOGO_id", sql.Decimal(18,2), req.body.EQC_LOGO_id)
-      .input("EQC_nombreCliente", sql.VarChar, req.body.EQC_nombreCliente)
-      .input("EQC_identificacionCliente", sql.VarChar, req.body.EQC_identificacionCliente)
-      .input("EQC_direccionCliente", sql.VarChar, req.body.EQC_direccionCliente)
-      .input("EQC_NegocioCliente", sql.VarChar, req.body.EQC_NegocioCliente)
-      .input("EQC_telefonoCliente", sql.VarChar, req.body.EQC_telefonoCliente)
-      .input("EQC_cambio",sql.Decimal,req.body.EQC_cambio)
-      .input("EQC_estadoEquipo",sql.Decimal,req.body.EQC_estadoEquipo)
-      .input("EQC_observacion",sql.VarChar,req.body.EQC_observacion)
-      .input("EQC_TI_id", sql.Decimal, req.body.EQC_TI_id)
-      .input("EQC_UBIC_id",sql.Decimal,req.body.EQC_UBIC_id)
-      .input("EQC_provincia",sql.VarChar,req.body.EQC_provincia)
-      .input("EQC_cabezales", sql.Decimal, req.body.EQC_cabezales)
-      .input("EQC_SubCanal", sql.VarChar, req.body.EQC_SubCanal)
-      .input("EQC_Grupocliente", sql.VarChar, req.body.EQC_Grupocliente)
-      .input("EQC_Ubicacion", sql.VarChar, req.body.EQC_Ubicacion)
-      .input("EQC_image1", sql.VarChar, image1)
-      .input("EQC_image2", sql.VarChar, image2)
-      .input("EQC_image3", sql.VarChar, image3)
-      .query(querys.updateActivoById);
-
-      if(result.rowsAffected==1){
-        return res.status(200).json({ status: "ok", msg: "Actualizacion exitosa" ,token:0});
-      }else{
-        return res.status(400).json({ status: "400", msg: "No se pudo actualizar, consulte al administrador" ,token:0});
-      }
-  } catch (error) {
-      res.status(500);
-      res.send(error.message);
+  if(req.body.EQC_sinImagen=='1'){
+    try {
+      const pool = await getConnection();
+      const result = await pool
+        .request()
+        .input("id", req.params.id)
+        .input("EQC_serie", sql.VarChar, req.body.EQC_serie)
+        .input("EQC_placa", sql.VarChar, req.body.EQC_placa)
+        .input("EQC_EQUIP_id", sql.Decimal, req.body.EQC_EQUIP_id)
+        .input("EQC_MARCA_id", sql.Decimal, req.body.EQC_MARCA_id)
+        .input("EQC_MAP_ciudad", sql.VarChar, req.body.EQC_MAP_ciudad)
+        .input("EQC_MAP_provincia", sql.VarChar, req.body.EQC_MAP_provincia)
+        .input("EQC_MAP_address", sql.VarChar, req.body.EQC_MAP_address)
+        .input("EQC_USU_edit", sql.Decimal, req.body.EQC_USU_edit)
+        .input("EQC_codTag", sql.VarChar, req.body.EQC_codTag)
+        .input("EQC_LOGO_id", sql.Decimal(18,2), req.body.EQC_LOGO_id)
+        .input("EQC_nombreCliente", sql.VarChar, req.body.EQC_nombreCliente)
+        .input("EQC_identificacionCliente", sql.VarChar, req.body.EQC_identificacionCliente)
+        .input("EQC_direccionCliente", sql.VarChar, req.body.EQC_direccionCliente)
+        .input("EQC_NegocioCliente", sql.VarChar, req.body.EQC_NegocioCliente)
+        .input("EQC_telefonoCliente", sql.VarChar, req.body.EQC_telefonoCliente)
+        .input("EQC_cambio",sql.Decimal,req.body.EQC_cambio)
+        .input("EQC_estadoEquipo",sql.Decimal,req.body.EQC_estadoEquipo)
+        .input("EQC_observacion",sql.VarChar,req.body.EQC_observacion)
+        .input("EQC_TI_id", sql.Decimal, req.body.EQC_TI_id)
+        .input("EQC_UBIC_id",sql.Decimal,req.body.EQC_UBIC_id)
+        .input("EQC_provincia",sql.VarChar,req.body.EQC_provincia)
+        .input("EQC_cabezales", sql.Decimal, req.body.EQC_cabezales)
+        .input("EQC_SubCanal", sql.VarChar, req.body.EQC_SubCanal)
+        .input("EQC_Grupocliente", sql.VarChar, req.body.EQC_Grupocliente)
+        .input("EQC_Ubicacion", sql.VarChar, req.body.EQC_Ubicacion)
+        .input("EQC_image1", sql.VarChar, image1)
+        .input("EQC_image2", sql.VarChar, image2)
+        .input("EQC_image3", sql.VarChar, image3)
+        .query(querys.updateActivoById);
+  
+        if(result.rowsAffected==1){
+          return res.status(200).json({ status: "ok", msg: "Actualizacion exitosa" ,token:0});
+        }else{
+          return res.status(400).json({ status: "400", msg: "No se pudo actualizar, consulte al administrador" ,token:0});
+        }
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+  }
+  else{
+    try {
+      const pool = await getConnection();
+      const result = await pool
+        .request()
+        .input("id", req.params.id)
+        .input("EQC_serie", sql.VarChar, req.body.EQC_serie)
+        .input("EQC_placa", sql.VarChar, req.body.EQC_placa)
+        .input("EQC_EQUIP_id", sql.Decimal, req.body.EQC_EQUIP_id)
+        .input("EQC_MARCA_id", sql.Decimal, req.body.EQC_MARCA_id)
+        .input("EQC_MAP_ciudad", sql.VarChar, req.body.EQC_MAP_ciudad)
+        .input("EQC_MAP_provincia", sql.VarChar, req.body.EQC_MAP_provincia)
+        .input("EQC_MAP_address", sql.VarChar, req.body.EQC_MAP_address)
+        .input("EQC_USU_edit", sql.Decimal, req.body.EQC_USU_edit)
+        .input("EQC_codTag", sql.VarChar, req.body.EQC_codTag)
+        .input("EQC_LOGO_id", sql.Decimal(18,2), req.body.EQC_LOGO_id)
+        .input("EQC_nombreCliente", sql.VarChar, req.body.EQC_nombreCliente)
+        .input("EQC_identificacionCliente", sql.VarChar, req.body.EQC_identificacionCliente)
+        .input("EQC_direccionCliente", sql.VarChar, req.body.EQC_direccionCliente)
+        .input("EQC_NegocioCliente", sql.VarChar, req.body.EQC_NegocioCliente)
+        .input("EQC_telefonoCliente", sql.VarChar, req.body.EQC_telefonoCliente)
+        .input("EQC_cambio",sql.Decimal,req.body.EQC_cambio)
+        .input("EQC_estadoEquipo",sql.Decimal,req.body.EQC_estadoEquipo)
+        .input("EQC_observacion",sql.VarChar,req.body.EQC_observacion)
+        .input("EQC_TI_id", sql.Decimal, req.body.EQC_TI_id)
+        .input("EQC_UBIC_id",sql.Decimal,req.body.EQC_UBIC_id)
+        .input("EQC_provincia",sql.VarChar,req.body.EQC_provincia)
+        .input("EQC_cabezales", sql.Decimal, req.body.EQC_cabezales)
+        .input("EQC_SubCanal", sql.VarChar, req.body.EQC_SubCanal)
+        .input("EQC_Grupocliente", sql.VarChar, req.body.EQC_Grupocliente)
+        .input("EQC_Ubicacion", sql.VarChar, req.body.EQC_Ubicacion)
+        .query(querys.updateActivoByIdSinImagen);
+  
+        if(result.rowsAffected==1){
+          return res.status(200).json({ status: "ok", msg: "Actualizacion exitosa" ,token:0});
+        }else{
+          return res.status(400).json({ status: "400", msg: "No se pudo actualizar, consulte al administrador" ,token:0});
+        }
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
   }
 };
 
