@@ -64,6 +64,7 @@ var querys = {
   getAllCiudad: "SELECT DISTINCT(EQC_provincia) AS EQC_MAP_ciudad FROM Z_GC_EQUIPO_COMPLETO ORDER BY EQC_provincia",
   getAllProvincia: "SELECT DISTINCT(EQC_provincia) AS EQC_MAP_provincia FROM Z_GC_EQUIPO_COMPLETO ORDER BY EQC_provincia",
   getAllUbicacion: "SELECT UBIC_id, UBIC_ciudad, UBIC_provincia FROM Z_GC_UBICACION ORDER BY UBIC_ciudad",
-  getDataEtiquetas: "SELECT T.TI_descripcion AS DESCRIPCION,COUNT(DISTINCT(T.EQC_id))AS CANTIDAD FROM(SELECT EQC_TI_id,EQC_id,TI_descripcion FROM Z_GC_EQUIPO_COMPLETO INNER JOIN Z_GC_TIPO_INVENTARIO ON EQC_TI_id = TI_id) T GROUP BY T.TI_descripcion"
+  getDataEtiquetas: "SELECT T.TI_descripcion AS DESCRIPCION,COUNT(DISTINCT(T.EQC_id))AS CANTIDAD FROM(SELECT EQC_TI_id,EQC_id,TI_descripcion FROM Z_GC_EQUIPO_COMPLETO INNER JOIN Z_GC_TIPO_INVENTARIO ON EQC_TI_id = TI_id) T GROUP BY T.TI_descripcion",
+  getActivosById: "SELECT * FROM Z_GC_EQUIPO_COMPLETO WHERE EQC_id = @EQC_id"
 };
 exports.querys = querys;

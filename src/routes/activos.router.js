@@ -10,6 +10,7 @@ import {
   getcountActivo,
   getTipoInventario,
   getTipoActivo,
+  getActivosById,
 } from "../controllers/activos.controller";
 
 const router = Router();
@@ -29,6 +30,7 @@ router.get("/activos/tipo", getTipoInventario);
 
 router.get("/activos/tipoA", getTipoActivo);
 
+router.get("/activos/x/:idActivo", getActivosById);
 //router.put("/activos/x/:id", updateActivoById);
 router.put("/activos/x/:id", storage.array('image',3),updateActivoById);
 

@@ -249,3 +249,16 @@ export const getTipoActivo = async (req, res) => {
     res.send(error.message);
   }
 };
+
+export const getActivosById = async (req, res) => {
+  try {
+    const pool = await getConnection();
+    const result = await pool.request()
+    .input("EQC_id", req.params.idActivo)
+    .query(querys.getActivosById);
+    res.json(result.recordset);
+  } catch (error) {
+    res.status(500);
+    res.send(error.message);
+  }
+};
